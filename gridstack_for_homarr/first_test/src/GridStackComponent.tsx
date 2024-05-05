@@ -1,8 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import "@homarr/gridstack/dist/gridstack.css"; // Import Gridstack CSS
 import { GridStack, GridStackNode } from "@homarr/gridstack";
+import { WidgetData, AppData } from "./types";
 
-const GridStackComponent: React.FC = () => {
+interface GridStackProps {
+    widgets?: WidgetData[];
+    apps?: AppData[];
+}
+
+const GridStackComponent: React.FC<GridStackProps> = ({ widgets, apps }) => {
     const gridRef = useRef<HTMLDivElement>(null);
     const gridStackInstance = useRef<GridStack | null>(null);
 
